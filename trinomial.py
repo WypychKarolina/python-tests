@@ -24,12 +24,6 @@ def trinomial(a:float, b:float, c:float):
     else:
         return ()
 
-def check2(trinomial: typing.Callable[[float,float,float],tuple],a,b,c):
-    solution =  trinomial(a,b,c)
-    if type(solution) != tuple:
-        return False
-    else:
-        return True
 
 def check1(a: float, b: float, c: float):
     solution = trinomial(a,b,c)
