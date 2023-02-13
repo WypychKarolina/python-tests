@@ -9,8 +9,10 @@ class Trinomial_function_test(unittest.TestCase):
     def test_all_ones(self):
         assert trinomial(1, 1, 1) == ()
 
-    def test_invalid_argument(self):
+    def test_invalid_argument_1(self):
         assert trinomial("a", 2, 8) == None
+
+    def test_invalid_argument_2(self):
         assert trinomial(25,77,[1,2]) == None
 
     def test_no_3_args(self):
@@ -27,3 +29,4 @@ class Trinomial_function_test(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
