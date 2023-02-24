@@ -1,17 +1,32 @@
+#!/usr/bin/env python
+
 import math
-import typing
 import numpy as np
 import sys
 
-def trinomial(a:float, b:float, c:float):
+def trinomial(*args):
 
-    args_type = np.array([a,b,c]).dtype
-    if args_type != float and args_type != int:
+    if len(args) != 3:
         return None
+        
+    a = args[0]
+    b = args[1]
+    c = args[2]
+    args_type = np.array([a,b,c]).dtype
+
+    if (args_type != float and args_type != int):
+        return None
+
+    if (a,b,c) == (0,0,0):
+        return None
+
+    if (a, b) == (0, 0):
+        return tuple()
 
     if a == 0:
         result = -c / b
-        return (result)
+        return tuple((result,))
+
 
     delta = (b**2) - (4 * a * c)
     if delta > 0:
@@ -20,24 +35,18 @@ def trinomial(a:float, b:float, c:float):
         return (result1, result2)
     elif delta == 0:
         result = -b / (2 * a) 
-        return (result)
+        return ((result,))
     else:
-        return ()
+        return tuple()
 
-def check2(trinomial: typing.Callable[[float,float,float],tuple],a,b,c):
-    solution =  trinomial(a,b,c)
+def check1(*args):
+    solution = trinomial(*args)
     if type(solution) != tuple:
-        return False
-    else:
-        return True
-
-def check1(a: float, b: float, c: float):
-    solution = trinomial(a,b,c)
-    if type(solution) != tuple:
-        return False
+        return (False,solution)
     else:
         return (True,solution)
 
 if __name__ == "__main__":
     output = check1(float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]))
     print(output)
+    
