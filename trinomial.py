@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import math
 import numpy as np
 import sys
 
@@ -31,8 +30,8 @@ def trinomial(*args):
 
     delta = (b**2) - (4 * a * c)
     if delta > 0:
-        result1 = (-b - math.sqrt(delta)) / (2 * a)
-        result2 = (-b + math.sqrt(delta)) / (2 * a)
+        result1 = (-b - np.sqrt(delta)) / (2 * a)
+        result2 = (-b + np.sqrt(delta)) / (2 * a)
         return (result1, result2)
     elif delta == 0:
         result = -b / (2 * a) 
@@ -48,7 +47,6 @@ def check1(*args):
         return (True,solution)
 
 if __name__ == "__main__":
-    #output = check1(float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]))
-    output = check1(1,2,3)
+    output = check1(float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]))
     print(output)
     
