@@ -5,17 +5,18 @@ import numpy as np
 import sys
 
 def trinomial(*args):
-
+    
     if len(args) != 3:
         return None
-        
+   
+    for i in args:
+        arg_type = type(i)
+        if arg_type != int and arg_type != float:
+            return None
+    
     a = args[0]
     b = args[1]
     c = args[2]
-    args_type = np.array([a,b,c]).dtype
-
-    if (args_type != float and args_type != int):
-        return None
 
     if (a,b,c) == (0,0,0):
         return None
@@ -47,6 +48,7 @@ def check1(*args):
         return (True,solution)
 
 if __name__ == "__main__":
-    output = check1(float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]))
+    #output = check1(float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]))
+    output = check1(1,2,3)
     print(output)
     
