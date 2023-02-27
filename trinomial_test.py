@@ -19,7 +19,7 @@ class Trinomial_function_test(unittest.TestCase):
         assert trinomial([1,2]) == None
         assert trinomial(1,2,4,7.0) == None
 
-    def test_check_invalid_argumant(self):
+    def test_check_invalid_argument(self):
         assert check1("aa") == (False, None)
     
     def test_check_correct_case(self):

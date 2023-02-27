@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 
-import math
 import numpy as np
 import sys
 
 def trinomial(*args):
-
+    
     if len(args) != 3:
         return None
-        
+   
+    for i in args:
+        arg_type = type(i)
+        if arg_type != int and arg_type != float:
+            return None
+    
     a = args[0]
     b = args[1]
     c = args[2]
-    args_type = np.array([a,b,c]).dtype
-
-    if (args_type != float and args_type != int):
-        return None
 
     if (a,b,c) == (0,0,0):
         return None
@@ -30,8 +30,8 @@ def trinomial(*args):
 
     delta = (b**2) - (4 * a * c)
     if delta > 0:
-        result1 = (-b - math.sqrt(delta)) / (2 * a)
-        result2 = (-b + math.sqrt(delta)) / (2 * a)
+        result1 = (-b - np.sqrt(delta)) / (2 * a)
+        result2 = (-b + np.sqrt(delta)) / (2 * a)
         return (result1, result2)
     elif delta == 0:
         result = -b / (2 * a) 
